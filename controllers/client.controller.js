@@ -19,8 +19,7 @@ const crearNuevaLinea = (nombre, email, id) => {
                 <li>
                     <button
                         class="simple-button simple-button--delete"
-                        type="button"
-                    >
+                        type="button" id="${id}">
                         Eliminar
                     </button>
                 </li>
@@ -29,7 +28,8 @@ const crearNuevaLinea = (nombre, email, id) => {
     linea.innerHTML = contenido;
     const btn = linea.querySelector("button");
     btn.addEventListener('click', () => {
-        console.log("click");
+        const id = btn.id;
+        console.log("click", id);
     });
     return linea;
 };
