@@ -1,19 +1,14 @@
 {
   "perfil": [
     {
-      "nombre": "Harland Lohora",
-      "email": "harland@alura.com",
-      "id": 1
-    },
-    {
       "nombre": "Luis",
       "email": "luis.lacv.98@gmail.com",
       "id": "c4a5c8b9-3233-4ce1-ad14-4b1783ed0665"
     },
     {
-      "nombre": "LUIS ALEJANDRO",
-      "email": "A840171307@my.uvm.edu.mx",
-      "id": "9eb695d1-f23a-4733-8f08-e882c096d1e6"
+      "nombre": "Harland",
+      "email": "harland@alura.com",
+      "id": "283bf757-97af-43a7-a0f0-7aa6613aa314"
     }
   ]
 }

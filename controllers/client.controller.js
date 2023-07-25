@@ -29,7 +29,9 @@ const crearNuevaLinea = (nombre, email, id) => {
     const btn = linea.querySelector("button");
     btn.addEventListener('click', () => {
         const id = btn.id;
-        console.log("click", id);
+        clientServices.eliminarCliente(id).then( respuesta => {
+            console.log(respuesta);
+        }).catch(err => alert("Ocurrio un error"))
     });
     return linea;
 };
@@ -45,7 +47,3 @@ clientServices.listaClientes().then((data) => {
         table.appendChild(nuevaLinea);
     });
 }).catch((error) => alert("Ocurrió un error"));
-
-const eliminarCliente = (id) => {
-    console.log("Elimina a: "+id);
-}

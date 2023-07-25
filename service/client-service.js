@@ -48,12 +48,20 @@ const crearCliente = (nombre,email) => {
         body: JSON.stringify({nombre,email, id: uuid.v4()}),
     });
 };
+
+const eliminarCliente = (id) => {
+    //JSON server toma el identificador que recibe
+    return fetch(`http://localhost:3000/perfil/${id}`, {
+        method: "DELETE"
+    });
+}
     
 
 //Exportar objeto clientServices con la llave de la funcion listaClientes
 export const clientServices = {
     listaClientes,
     crearCliente,
+    eliminarCliente,
 };
 
 
