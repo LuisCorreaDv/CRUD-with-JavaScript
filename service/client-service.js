@@ -35,9 +35,25 @@ const listaClientes = () => fetch("http://localhost:3000/perfil").then((respuest
 // });
 // return promise
 
+const crearCliente = (nombre,email) => {
+    return fetch("http://localhost:3000/perfil",{
+        //Tipo de metodo
+        method: "POST",
+        //Definir encabezados
+        headers: {
+            "Content-Type": "application/json"
+        },
+        //Informacion que queremos enviar en el cuerpo de la peticion
+        //Transformar datos a texto
+        body: JSON.stringify({nombre,email, id: uuid.v4()}),
+    });
+};
+    
+
 //Exportar objeto clientServices con la llave de la funcion listaClientes
 export const clientServices = {
     listaClientes,
+    crearCliente,
 };
 
 
