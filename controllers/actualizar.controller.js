@@ -2,7 +2,7 @@ import { clientServices } from "../service/client-service.js";
 
 const formulario = document.querySelector("[data-form]");
 
-const obtenerInformacion = () => {
+const obtenerInformacion = async () => {
     const url = new URL(window.location);
     //Busca el parametro de ID dentro de la url en donde se está posicionado
     const id = url.searchParams.get("id");
@@ -13,12 +13,11 @@ const obtenerInformacion = () => {
 
     const nombre = document.querySelector("[data-nombre]");
     const email = document.querySelector("[data-email]");
+    const perfil = await clientServices.detalleCliente(id)
 
+    nombre.value = perfil.nombre;
+    email.value = perfil.email;
 
-    clientServices.detalleCliente(id).then(perfil => {
-        nombre.value = perfil.nombre;
-        email.value = perfil.email;
-    });
 };
 
 obtenerInformacion();
@@ -33,5 +32,5 @@ formulario.addEventListener('submit', (evento) => {
     clientServices.actualizaCliente(nombre, email, id).then(() => {
         window.location.href = "/screens/edicion_concluida.html";
     });
-})
+});
 
