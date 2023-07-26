@@ -59,9 +59,20 @@ const eliminarCliente = (id) => {
 const detalleCliente = (id) => {
     return fetch(`http://localhost:3000/perfil/${id}`).then((respuesta) => 
         respuesta.json()
-    )
+    );
 };
     
+const actualizaCliente = (nombre,email,id) => {
+    return fetch(`http://localhost:3000/perfil/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({nombre, email}),
+    })
+    .then((respuesta) => console.log(respuesta))
+    .catch((err) => console.log(err));
+};
 
 //Exportar objeto clientServices con la llave de la funcion listaClientes
 export const clientServices = {
@@ -69,6 +80,7 @@ export const clientServices = {
     crearCliente,
     eliminarCliente,
     detalleCliente,
+    actualizaCliente,
 };
 
 
